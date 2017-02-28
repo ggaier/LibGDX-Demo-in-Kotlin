@@ -13,7 +13,7 @@ class AndroidLauncher : AndroidApplication() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        val androidApplicationConfig=AndroidApplicationConfiguration()
+        val androidApplicationConfig= AndroidApplicationConfiguration()
         initialize(StartFiled(),androidApplicationConfig)
     }
 
