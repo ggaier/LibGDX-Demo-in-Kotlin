@@ -1,4 +1,4 @@
-package main.java.com.ggaier
+package com.ggaier.gamedev
 
 import com.badlogic.gdx.ApplicationAdapter
 import com.badlogic.gdx.Gdx
@@ -50,11 +50,11 @@ class StartFiled : ApplicationAdapter(){
     }
 
     fun initStars(density : Float){
-        val screenWidth=Gdx.graphics.width
-        val screenHeight=Gdx.graphics.height
+        val screenWidth= Gdx.graphics.width
+        val screenHeight= Gdx.graphics.height
         val starCount: Int=(screenHeight*screenWidth*density).toInt()
         mStars= Array(starCount)
-        val random=Random()
+        val random= Random()
         for (i in 1..starCount){
             val x:Float=random.nextInt(screenWidth).toFloat()
             val y: Float=random.nextInt(screenHeight).toFloat()

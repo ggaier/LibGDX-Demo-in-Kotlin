@@ -3,7 +3,7 @@ package com.ggaier.libgdxkotlin
 import android.os.Bundle
 import com.badlogic.gdx.backends.android.AndroidApplication
 import com.badlogic.gdx.backends.android.AndroidApplicationConfiguration
-import main.java.com.ggaier.StartFiled
+import com.ggaier.gamedev.StartFiled
 
 /**
  * Created by ggaier at 27/02/2017 .
