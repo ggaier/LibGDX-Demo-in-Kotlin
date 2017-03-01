@@ -3,7 +3,7 @@ package com.ggaier.libgdxkotlin
 import android.os.Bundle
 import com.badlogic.gdx.backends.android.AndroidApplication
 import com.badlogic.gdx.backends.android.AndroidApplicationConfiguration
-import com.ggaier.gamedev.StartFiled
+import com.ggaier.gamedev.dots.ConnectTheDots
 
 /**
  * Created by ggaier at 27/02/2017 .
@@ -14,7 +14,7 @@ class AndroidLauncher : AndroidApplication() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         val androidApplicationConfig= AndroidApplicationConfiguration()
-        initialize(StartFiled(),androidApplicationConfig)
+        initialize(ConnectTheDots(),androidApplicationConfig)
     }
 
 

@@ -13,7 +13,7 @@ val FLOAT_DOTS: FloatArray = floatArrayOf(411.0f, 237.0f, 388.0f, 272.0f, 355.0f
 fun dots(): Array<Vector2> {
     val dotCounts = FLOAT_DOTS.size / 2
     val dots = Array<Vector2>(dotCounts)
-    for (i in 1..dotCounts) {
+    for (i in 0..dotCounts-1) {
         val dot = Vector2()
         dot.x = FLOAT_DOTS[2 * i]
         dot.y = FLOAT_DOTS[2 * i + 1]
