@@ -22,13 +22,13 @@ class StartFiled : ApplicationAdapter(){
         super.create()
         initStars(STAR_DENSITY)
         mShapeRender= ShapeRenderer()
-//        mShapeRender.color=Color.BLUE
+//        mShapeRenderer.color=Color.BLUE
     }
 
     override fun resize(width: Int, height: Int) {
         initStars(STAR_DENSITY)
         mShapeRender= ShapeRenderer()
-//        mShapeRender.color=Color.BLUE
+//        mShapeRenderer.color=Color.BLUE
     }
 
     override fun render() {
