@@ -31,11 +31,11 @@ class DrawASpiral() : ApplicationAdapter() {
         for(i in 0..COILS-1){
             val xOffset=xStep*i.toFloat()
             val yOffset=yStep*i.toFloat()
-            val point1=Vector2(xOffset,yOffset)
+            val point1 =Vector2(xOffset-xStep,yOffset)
             val point2=Vector2(screenWidth-xOffset,yOffset)
             val point3=Vector2(screenWidth-xOffset,screenHeight-yOffset)
             val point4=Vector2(xOffset,screenHeight-yOffset)
-            val point5=Vector2(xOffset,yOffset)
+            val point5=Vector2(xOffset,yStep+yOffset)
             mShapeRenderer.line(point1,point2)
             mShapeRenderer.line(point2,point3)
             mShapeRenderer.line(point3,point4)
