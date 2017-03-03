@@ -56,6 +56,14 @@
             android:text="Punch Cantor Gasket"
             />
 
+        <Button
+            android:layout_width="wrap_content"
+            android:id="@+id/dragon_curve"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="Drag dragon curve"
+            />
+
 
     </LinearLayout>
 </ScrollView>

@@ -8,6 +8,7 @@ import com.badlogic.gdx.backends.android.AndroidApplicationConfiguration
 import com.ggaier.gamedev.StartFiled
 import com.ggaier.gamedev.cantorgasket.CantorGasket
 import com.ggaier.gamedev.dots.ConnectTheDots
+import com.ggaier.gamedev.dragoncurve.DragonCurve
 import com.ggaier.gamedev.flower.RectangleFlower
 import com.ggaier.gamedev.spirals.DrawASpiral
 
@@ -27,6 +28,7 @@ class AndroidLauncher : AndroidApplication() {
             FLAG_SPIRAL -> applicationListener = DrawASpiral()
             FLAG_FLOWER -> applicationListener = RectangleFlower()
             FLAG_CANTOR_GASKET -> applicationListener = CantorGasket()
+            FLAG_DRAGON_CURVE->applicationListener=DragonCurve()
             else -> {
                 Toast.makeText(this@AndroidLauncher, "Wrong Drawing Type", Toast.LENGTH_LONG).show()
             }

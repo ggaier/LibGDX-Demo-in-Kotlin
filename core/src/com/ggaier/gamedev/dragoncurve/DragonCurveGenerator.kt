@@ -61,7 +61,7 @@ class DragonCurveGenerator() {
         fun generateDragonCurve(width: Int, height: Int, recursions: Int):FloatArray {
             val turns = DragonCurveGenerator.dragonTurns(recursions)
             val head = Vector2(width / 2.toFloat(), height / 2.toFloat())
-            var heading = Vector2(5f, 0f)
+            var heading = Vector2(20f, 0f)
 
             val curve = FloatArray((turns.size + 1) * 2)
 
