@@ -6,6 +6,7 @@ import com.badlogic.gdx.ApplicationListener
 import com.badlogic.gdx.backends.android.AndroidApplication
 import com.badlogic.gdx.backends.android.AndroidApplicationConfiguration
 import com.ggaier.gamedev.StartFiled
+import com.ggaier.gamedev.cantorgasket.CantorGasket
 import com.ggaier.gamedev.dots.ConnectTheDots
 import com.ggaier.gamedev.flower.RectangleFlower
 import com.ggaier.gamedev.spirals.DrawASpiral
@@ -25,8 +26,9 @@ class AndroidLauncher : AndroidApplication() {
             FLAG_CONNECT_DOTS -> applicationListener = ConnectTheDots()
             FLAG_SPIRAL -> applicationListener = DrawASpiral()
             FLAG_FLOWER -> applicationListener = RectangleFlower()
+            FLAG_CANTOR_GASKET -> applicationListener = CantorGasket()
             else -> {
-                Toast.makeText(this@AndroidLauncher,"Wrong Drawing Type",Toast.LENGTH_LONG).show()
+                Toast.makeText(this@AndroidLauncher, "Wrong Drawing Type", Toast.LENGTH_LONG).show()
             }
         }
         val androidApplicationConfig = AndroidApplicationConfiguration()

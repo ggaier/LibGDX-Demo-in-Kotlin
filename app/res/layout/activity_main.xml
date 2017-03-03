@@ -48,6 +48,14 @@
             android:text="Draw a flower"
             />
 
+        <Button
+            android:layout_width="wrap_content"
+            android:id="@+id/punch_cantor_gasket"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="Punch Cantor Gasket"
+            />
+
 
     </LinearLayout>
 </ScrollView>

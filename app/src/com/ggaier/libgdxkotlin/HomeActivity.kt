@@ -14,6 +14,7 @@ const val FLAG_START_FILED:Int=1
 const val FLAG_CONNECT_DOTS:Int=2
 const val FLAG_SPIRAL:Int=3
 const val FLAG_FLOWER:Int=4
+const val FLAG_CANTOR_GASKET:Int=5
 
 class HomeActivity : Activity() {
 
@@ -38,6 +39,11 @@ class HomeActivity : Activity() {
 
         draw_flower.setOnClickListener {
             intent.putExtra(FLAG, FLAG_FLOWER)
+            startActivity(intent)
+        }
+
+        punch_cantor_gasket.setOnClickListener {
+            intent.putExtra(FLAG, FLAG_CANTOR_GASKET)
             startActivity(intent)
         }
     }
