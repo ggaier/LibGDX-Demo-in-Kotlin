@@ -11,6 +11,7 @@ import com.ggaier.gamedev.dots.ConnectTheDots
 import com.ggaier.gamedev.dragoncurve.DragonCurve
 import com.ggaier.gamedev.flower.RectangleFlower
 import com.ggaier.gamedev.spirals.DrawASpiral
+import com.ggaier.gamedev.stickfigure.DrawAStickFigure
 
 /**
  * Created by ggaier at 27/02/2017 .
@@ -29,6 +30,7 @@ class AndroidLauncher : AndroidApplication() {
             FLAG_FLOWER -> applicationListener = RectangleFlower()
             FLAG_CANTOR_GASKET -> applicationListener = CantorGasket()
             FLAG_DRAGON_CURVE->applicationListener=DragonCurve()
+            FLAG_STICK_FIGURE->applicationListener=DrawAStickFigure()
             else -> {
                 Toast.makeText(this@AndroidLauncher, "Wrong Drawing Type", Toast.LENGTH_LONG).show()
             }

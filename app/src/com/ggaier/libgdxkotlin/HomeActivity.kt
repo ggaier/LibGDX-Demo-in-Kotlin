@@ -16,6 +16,7 @@ const val FLAG_SPIRAL: Int = 3
 const val FLAG_FLOWER: Int = 4
 const val FLAG_CANTOR_GASKET: Int = 5
 const val FLAG_DRAGON_CURVE: Int = 6
+const val FLAG_STICK_FIGURE: Int = 7
 
 class HomeActivity : Activity() {
 
@@ -50,6 +51,11 @@ class HomeActivity : Activity() {
 
         dragon_curve.setOnClickListener {
             intent.putExtra(FLAG, FLAG_DRAGON_CURVE)
+            startActivity(intent)
+        }
+
+        stick_figure.setOnClickListener {
+            intent.putExtra(FLAG, FLAG_STICK_FIGURE)
             startActivity(intent)
         }
     }

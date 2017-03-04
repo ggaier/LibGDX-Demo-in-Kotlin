@@ -64,6 +64,14 @@
             android:text="Drag dragon curve"
             />
 
+        <Button
+            android:layout_width="wrap_content"
+            android:id="@+id/stick_figure"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="Drag a stick figure"
+            />
+
 
     </LinearLayout>
 </ScrollView>
