@@ -19,7 +19,7 @@ const val Y_AMPLITUDE = 20
 const val X_CENTER = 100f
 const val Y_CENTER = 100f
 
-class OrthographicCamera() : ApplicationAdapter() {
+class OrthographicCamera : ApplicationAdapter() {
 
     lateinit var mShapeRenderer: ShapeRenderer
     var mTimeCreated: Long = 0
