@@ -17,47 +17,51 @@ const val FLAG_FLOWER: Int = 4
 const val FLAG_CANTOR_GASKET: Int = 5
 const val FLAG_DRAGON_CURVE: Int = 6
 const val FLAG_STICK_FIGURE: Int = 7
+const val FLAG_ORTHOGRAPHIC_CAMERA: Int = 8
 
 class HomeActivity : Activity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        val intent = Intent(this@HomeActivity, AndroidLauncher::class.java)
+
         start_field.setOnClickListener {
-            intent.putExtra(FLAG, FLAG_START_FILED)
-            startActivity(intent)
+            startActivityWithFlag(FLAG_START_FILED)
         }
 
         connect_dots.setOnClickListener {
-            intent.putExtra(FLAG, FLAG_CONNECT_DOTS)
-            startActivity(intent)
+            startActivityWithFlag(FLAG_CONNECT_DOTS)
         }
 
         spiral.setOnClickListener {
-            intent.putExtra(FLAG, FLAG_SPIRAL)
-            startActivity(intent)
+            startActivityWithFlag(FLAG_SPIRAL)
         }
 
         draw_flower.setOnClickListener {
-            intent.putExtra(FLAG, FLAG_FLOWER)
-            startActivity(intent)
+            startActivityWithFlag(FLAG_FLOWER)
         }
 
         punch_cantor_gasket.setOnClickListener {
-            intent.putExtra(FLAG, FLAG_CANTOR_GASKET)
-            startActivity(intent)
+            startActivityWithFlag(FLAG_CANTOR_GASKET)
         }
 
         dragon_curve.setOnClickListener {
-            intent.putExtra(FLAG, FLAG_DRAGON_CURVE)
-            startActivity(intent)
+            startActivityWithFlag(FLAG_DRAGON_CURVE)
         }
 
         stick_figure.setOnClickListener {
-            intent.putExtra(FLAG, FLAG_STICK_FIGURE)
-            startActivity(intent)
+            startActivityWithFlag(FLAG_STICK_FIGURE)
         }
+
+        orthographic_camera.setOnClickListener {
+            startActivityWithFlag(FLAG_ORTHOGRAPHIC_CAMERA)
+        }
+    }
+
+    private fun startActivityWithFlag(extraFlag: Int) {
+        val intent = Intent(this@HomeActivity, AndroidLauncher::class.java)
+        intent.putExtra(FLAG, extraFlag)
+        startActivity(intent)
     }
 
 }
