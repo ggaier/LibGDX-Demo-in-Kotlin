@@ -41,8 +41,33 @@ class ViewportsExcercise:ApplicationAdapter(){
         mShapeRender.begin(ShapeRenderer.ShapeType.Filled)
         mShapeRender.color=Color.WHITE
         mShapeRender.rect(0f,0f, WORLD_WIDTH, WORLD_HEIGHT)
-        
 
+        mShapeRender.color=Color.BLACK
+        punchCantorGasket(0f,0f, WORLD_WIDTH, WORLD_HEIGHT, RECURSIONS)
+
+        mShapeRender.color=Color.WHITE
+        mShapeRender.circle(WORLD_WIDTH, WORLD_HEIGHT,Math.min(WORLD_HEIGHT, WORLD_WIDTH))
+        mShapeRender.end()
+
+
+    }
+
+    private fun punchCantorGasket(x: Float, y: Float, width: Float, height: Float, recursions: Int) {
+        if (recursions == 0) {
+            return
+        }
+        val newWidth = width / 3
+        val newHeight = height / 3
+        mShapeRender.rect(x + newWidth, y + newHeight, newWidth, newHeight)
+
+        punchCantorGasket(x, y, newWidth, newHeight, recursions - 1)
+        punchCantorGasket(x + newWidth, y, newWidth, newHeight, recursions - 1)
+        punchCantorGasket(x + 2 * newWidth, y, newWidth, newHeight, recursions - 1)
+        punchCantorGasket(x, y + newHeight, newWidth, newHeight, recursions - 1)
+        punchCantorGasket(x + 2 * newWidth, y + newHeight, newWidth, newHeight, recursions - 1)
+        punchCantorGasket(x, y + 2 * newHeight, newWidth, newHeight, recursions - 1)
+        punchCantorGasket(x + newWidth, y + 2 * newHeight, newWidth, newHeight, recursions - 1)
+        punchCantorGasket(x + 2 * newWidth, y + 2 * newHeight, newWidth, newHeight, recursions - 1)
     }
 
 }
