@@ -80,5 +80,13 @@
             android:text="Orthographic Camera Demo"
             />
 
+        <Button
+            android:layout_width="wrap_content"
+            android:id="@+id/viewports_exercise"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="Viewports Exercise"
+            />
+
     </LinearLayout>
 </ScrollView>

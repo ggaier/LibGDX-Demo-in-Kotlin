@@ -13,6 +13,7 @@ import com.ggaier.gamedev.flower.RectangleFlower
 import com.ggaier.gamedev.orthographiccamera.OrthographicCamera
 import com.ggaier.gamedev.spirals.DrawASpiral
 import com.ggaier.gamedev.stickfigure.DrawAStickFigure
+import com.ggaier.gamedev.viewports.ViewportsExcercise
 
 /**
  * Created by ggaier at 27/02/2017 .
@@ -33,6 +34,7 @@ class AndroidLauncher : AndroidApplication() {
             FLAG_DRAGON_CURVE -> applicationListener = DragonCurve()
             FLAG_STICK_FIGURE -> applicationListener = DrawAStickFigure()
             FLAG_ORTHOGRAPHIC_CAMERA -> applicationListener = OrthographicCamera()
+            FLAG_VIEWPORTS_EXERCISE -> applicationListener=ViewportsExcercise()
             else -> {
                 Toast.makeText(this@AndroidLauncher, "Wrong Drawing Type", Toast.LENGTH_LONG).show()
             }

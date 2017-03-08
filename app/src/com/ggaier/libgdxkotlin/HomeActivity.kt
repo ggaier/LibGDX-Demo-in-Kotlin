@@ -18,6 +18,7 @@ const val FLAG_CANTOR_GASKET: Int = 5
 const val FLAG_DRAGON_CURVE: Int = 6
 const val FLAG_STICK_FIGURE: Int = 7
 const val FLAG_ORTHOGRAPHIC_CAMERA: Int = 8
+const val FLAG_VIEWPORTS_EXERCISE: Int = 9
 
 class HomeActivity : Activity() {
 
@@ -55,6 +56,10 @@ class HomeActivity : Activity() {
 
         orthographic_camera.setOnClickListener {
             startActivityWithFlag(FLAG_ORTHOGRAPHIC_CAMERA)
+        }
+
+        viewports_exercise.setOnClickListener {
+            startActivityWithFlag(FLAG_VIEWPORTS_EXERCISE)
         }
     }
 
