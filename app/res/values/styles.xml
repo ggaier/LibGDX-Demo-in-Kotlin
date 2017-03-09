@@ -9,15 +9,18 @@
         <item name="android:windowNoTitle">true</item>
         <item name="android:windowContentOverlay">@null</item>
         <item name="android:windowFullscreen">true</item>
-    </style>
-
-    <style name="AppTheme.HomeActivity">
         <item name="android:colorPrimary">@color/colorPrimary</item>
         <item name="android:colorAccent">@color/colorAccent</item>
         <item name="android:colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="android:buttonStyle">@style/GKButton</item>
+    </style>
+
+    <style name="AppTheme.HomeActivity">
         <item name="android:windowBackground">@android:color/white</item>
         <item name="android:windowNoTitle">false</item>
         <item name="android:windowFullscreen">false</item>
     </style>
+
+    <style name="GKButton" parent="Widget.AppCompat.Button.Colored"/>
 
 </resources>
