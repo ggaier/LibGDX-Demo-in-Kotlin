@@ -14,7 +14,7 @@ import com.badlogic.gdx.utils.viewport.FitViewport
 const val WORLD_WIDTH=100.0f
 const val WORLD_HEIGHT=100.0f
 const val RECURSIONS=3
-class ViewportsExcercise:ApplicationAdapter(){
+class ViewportsExercise :ApplicationAdapter(){
 
     lateinit var mShapeRender:ShapeRenderer
     lateinit var mViewPort:FitViewport
@@ -38,6 +38,7 @@ class ViewportsExcercise:ApplicationAdapter(){
 
         mViewPort.apply()
         mShapeRender.projectionMatrix=mViewPort.camera.combined
+
         mShapeRender.begin(ShapeRenderer.ShapeType.Filled)
         mShapeRender.color=Color.WHITE
         mShapeRender.rect(0f,0f, WORLD_WIDTH, WORLD_HEIGHT)
