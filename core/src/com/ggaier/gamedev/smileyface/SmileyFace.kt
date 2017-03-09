@@ -65,7 +65,7 @@ class SmileyFace : ApplicationAdapter() {
 
         render.color = Color.BLACK
         render.circle(FACE_CENTER_X - EYE_OFFSET, FACE_CENTER_Y + EYE_OFFSET,
-                EYE_OFFSET, EYE_SEGMENTS)
+                EYE_RADIUS, EYE_SEGMENTS)
 
         render.circle(FACE_CENTER_X + EYE_OFFSET, FACE_CENTER_Y + EYE_OFFSET,
                 EYE_RADIUS, EYE_SEGMENTS)
