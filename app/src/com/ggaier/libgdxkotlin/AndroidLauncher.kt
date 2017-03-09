@@ -11,6 +11,7 @@ import com.ggaier.gamedev.dots.ConnectTheDots
 import com.ggaier.gamedev.dragoncurve.DragonCurve
 import com.ggaier.gamedev.flower.RectangleFlower
 import com.ggaier.gamedev.orthographiccamera.OrthographicCamera
+import com.ggaier.gamedev.smileyface.SmileyFace
 import com.ggaier.gamedev.spirals.DrawASpiral
 import com.ggaier.gamedev.stickfigure.DrawAStickFigure
 import com.ggaier.gamedev.viewports.ViewportsExercise
@@ -35,6 +36,7 @@ class AndroidLauncher : AndroidApplication() {
             FLAG_STICK_FIGURE -> applicationListener = DrawAStickFigure()
             FLAG_ORTHOGRAPHIC_CAMERA -> applicationListener = OrthographicCamera()
             FLAG_VIEWPORTS_EXERCISE -> applicationListener= ViewportsExercise()
+            FLAG_SMILEY_FACE -> applicationListener = SmileyFace()
             else -> {
                 Toast.makeText(this@AndroidLauncher, "Wrong Drawing Type", Toast.LENGTH_LONG).show()
             }
