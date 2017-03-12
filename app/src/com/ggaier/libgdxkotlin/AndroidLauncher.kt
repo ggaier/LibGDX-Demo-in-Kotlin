@@ -15,6 +15,7 @@ import com.ggaier.gamedev.smileyface.SmileyFace
 import com.ggaier.gamedev.spirals.DrawASpiral
 import com.ggaier.gamedev.stickfigure.DrawAStickFigure
 import com.ggaier.gamedev.viewports.ViewportsExercise
+import com.ggaier.gamedev.worldcloud.WorldCloud
 
 /**
  * Created by ggaier at 27/02/2017 .
@@ -37,6 +38,7 @@ class AndroidLauncher : AndroidApplication() {
             FLAG_ORTHOGRAPHIC_CAMERA -> applicationListener = OrthographicCamera()
             FLAG_VIEWPORTS_EXERCISE -> applicationListener= ViewportsExercise()
             FLAG_SMILEY_FACE -> applicationListener = SmileyFace()
+            FLAG_WORLD_CLOUD -> applicationListener = WorldCloud()
             else -> {
                 Toast.makeText(this@AndroidLauncher, "Wrong Drawing Type", Toast.LENGTH_LONG).show()
             }

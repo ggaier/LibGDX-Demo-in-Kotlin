@@ -96,6 +96,13 @@
             android:text="Draw a Smiley Face"
             />
 
+        <Button
+            android:id="@+id/world_cloud"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="Draw a Word Cloud"
+            />
 
     </LinearLayout>
 </ScrollView>

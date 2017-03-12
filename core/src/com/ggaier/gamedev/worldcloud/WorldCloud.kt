@@ -27,7 +27,7 @@ class WorldCloud : ApplicationAdapter() {
 
     lateinit var mFont: BitmapFont
 
-    private lateinit var mWords: Array<Word?>
+    private lateinit var mWords: Array<Word>
 
     override fun create() {
         mBatch = SpriteBatch()
@@ -54,14 +54,21 @@ class WorldCloud : ApplicationAdapter() {
 
         for (word in mWords) {
             // 设置字体的缩放
-            mFont.data.scale(word?.scale?: MIN_SCALE)
-            
+            mFont.data.scale(word.scale)
+            // 设置字体的颜色
+            mFont.color = word.color
+
+            //真正的绘制字符
+            mFont.draw(mBatch, word.letters, word.x * Gdx.graphics.width,
+                    word.y * Gdx.graphics.height)
+
         }
+        mBatch.end()
 
     }
 
-    private fun generateWords(wordCount: Int): Array<Word?> {
-        val words = arrayOfNulls<Word>(wordCount)
+    private fun generateWords(wordCount: Int): Array<Word> {
+        val words = emptyArray<Word>()
         for (i in 1..20) {
             words[i] = Word.randomWord(MIN_SCALE, MAX_SCALE)
         }

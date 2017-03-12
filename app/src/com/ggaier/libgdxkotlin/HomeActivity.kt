@@ -20,6 +20,7 @@ const val FLAG_STICK_FIGURE: Int = 7
 const val FLAG_ORTHOGRAPHIC_CAMERA: Int = 8
 const val FLAG_VIEWPORTS_EXERCISE: Int = 9
 const val FLAG_SMILEY_FACE: Int = 10
+const val FLAG_WORLD_CLOUD: Int = 11
 
 class HomeActivity : Activity() {
 
@@ -65,6 +66,10 @@ class HomeActivity : Activity() {
 
         smiley_face.setOnClickListener {
             startActivityWithFlag(FLAG_SMILEY_FACE)
+        }
+
+        world_cloud.setOnClickListener {
+            startActivityWithFlag(FLAG_WORLD_CLOUD)
         }
     }
 
