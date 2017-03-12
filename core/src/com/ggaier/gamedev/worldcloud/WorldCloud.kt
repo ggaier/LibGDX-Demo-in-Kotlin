@@ -54,7 +54,7 @@ class WorldCloud : ApplicationAdapter() {
 
         for (word in mWords) {
             // 设置字体的缩放
-            mFont.data.scale(word.scale)
+            mFont.data.setScale(word.scale)
             // 设置字体的颜色
             mFont.color = word.color
 
