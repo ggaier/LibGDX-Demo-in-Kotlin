@@ -68,10 +68,9 @@ class WorldCloud : ApplicationAdapter() {
     }
 
     private fun generateWords(wordCount: Int): Array<Word> {
-        val words = emptyArray<Word>()
-        for (i in 1..20) {
-            words[i] = Word.randomWord(MIN_SCALE, MAX_SCALE)
-        }
+        val words = Array(wordCount, {
+            Word.randomWord(MIN_SCALE, MAX_SCALE)
+        })
         return words
     }
 
