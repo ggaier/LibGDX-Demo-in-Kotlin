@@ -13,9 +13,9 @@ import com.badlogic.gdx.utils.TimeUtils
  * jwenbo52@gmail.com
  */
 const val BALL_RADIUS = 20f
-const val PERIOD = 2000
-const val X_AMPLITUDE = 40
-const val Y_AMPLITUDE = 20
+const val PERIOD = 2000f
+const val X_AMPLITUDE = 40f
+const val Y_AMPLITUDE = 20f
 const val X_CENTER = 100f
 const val Y_CENTER = 100f
 
@@ -40,10 +40,11 @@ class OrthographicCamera : ApplicationAdapter() {
         mCamera.update()
 
         mShapeRenderer.projectionMatrix=mCamera.combined
+
         mShapeRenderer.begin(ShapeRenderer.ShapeType.Filled)
         val interval=TimeUtils.timeSinceMillis(mTimeCreated)
-        val x= X_CENTER+ X_AMPLITUDE+MathUtils.sin(MathUtils.PI2*interval/ PERIOD)
-        val y= Y_CENTER+ Y_AMPLITUDE+MathUtils.sin(2*MathUtils.PI2*interval/ PERIOD)
+        val x= X_CENTER+ X_AMPLITUDE*MathUtils.sin(MathUtils.PI2*interval/ PERIOD)
+        val y= Y_CENTER+ Y_AMPLITUDE*MathUtils.sin(2*MathUtils.PI2*interval/ PERIOD)
         mShapeRenderer.circle(x,y, BALL_RADIUS)
         mShapeRenderer.end()
 
