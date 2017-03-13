@@ -7,6 +7,7 @@ import com.badlogic.gdx.backends.android.AndroidApplication
 import com.badlogic.gdx.backends.android.AndroidApplicationConfiguration
 import com.ggaier.gamedev.StartFiled
 import com.ggaier.gamedev.cantorgasket.CantorGasket
+import com.ggaier.gamedev.cyclicoverlap.CyclicOverlap
 import com.ggaier.gamedev.dots.ConnectTheDots
 import com.ggaier.gamedev.dragoncurve.DragonCurve
 import com.ggaier.gamedev.flower.RectangleFlower
@@ -39,6 +40,7 @@ class AndroidLauncher : AndroidApplication() {
             FLAG_VIEWPORTS_EXERCISE -> applicationListener= ViewportsExercise()
             FLAG_SMILEY_FACE -> applicationListener = SmileyFace()
             FLAG_WORLD_CLOUD -> applicationListener = WorldCloud()
+            FLAG_CYCLIC_OVERLAP -> applicationListener = CyclicOverlap()
             else -> {
                 Toast.makeText(this@AndroidLauncher, "Wrong Drawing Type", Toast.LENGTH_LONG).show()
             }
