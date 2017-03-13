@@ -14,6 +14,7 @@ import com.badlogic.gdx.utils.viewport.FitViewport
 const val WORLD_WIDTH=100.0f
 const val WORLD_HEIGHT=100.0f
 const val RECURSIONS=3
+//todo: update this drawing
 class ViewportsExercise :ApplicationAdapter(){
 
     lateinit var mShapeRender:ShapeRenderer
