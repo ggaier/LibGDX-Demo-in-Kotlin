@@ -112,6 +112,14 @@
             android:text="Draw a Cyclic Overlap"
             />
 
+        <Button
+            android:id="@+id/sierpinski_triangle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="Draw a Sierpinski Triangle"
+            />
+
 
     </LinearLayout>
 </ScrollView>

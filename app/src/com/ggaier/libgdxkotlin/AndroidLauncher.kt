@@ -12,6 +12,7 @@ import com.ggaier.gamedev.dots.ConnectTheDots
 import com.ggaier.gamedev.dragoncurve.DragonCurve
 import com.ggaier.gamedev.flower.RectangleFlower
 import com.ggaier.gamedev.orthographiccamera.OrthographicCamera
+import com.ggaier.gamedev.sierpinskitriangle.SierpinskiTriangle
 import com.ggaier.gamedev.smileyface.SmileyFace
 import com.ggaier.gamedev.spirals.DrawASpiral
 import com.ggaier.gamedev.stickfigure.DrawAStickFigure
@@ -41,6 +42,7 @@ class AndroidLauncher : AndroidApplication() {
             FLAG_SMILEY_FACE -> applicationListener = SmileyFace()
             FLAG_WORLD_CLOUD -> applicationListener = WorldCloud()
             FLAG_CYCLIC_OVERLAP -> applicationListener = CyclicOverlap()
+            FLAG_SIERPINSKI_TRIANGLE -> applicationListener = SierpinskiTriangle()
             else -> {
                 Toast.makeText(this@AndroidLauncher, "Wrong Drawing Type", Toast.LENGTH_LONG).show()
             }
