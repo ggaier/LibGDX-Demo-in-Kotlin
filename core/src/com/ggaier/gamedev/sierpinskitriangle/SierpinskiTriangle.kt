@@ -35,6 +35,7 @@ class SierpinskiTriangle : ApplicationAdapter() {
 
         mRenderer.begin(ShapeRenderer.ShapeType.Filled)
         inscribeSierpinskiTriangle(mRenderer, SIZE, RECURSIONS)
+        mRenderer.end()
     }
 
     private fun inscribeSierpinskiTriangle(renderer: ShapeRenderer, size: Float,
