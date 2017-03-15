@@ -23,6 +23,7 @@ const val FLAG_SMILEY_FACE: Int = 10
 const val FLAG_WORLD_CLOUD: Int = 11
 const val FLAG_CYCLIC_OVERLAP: Int = 12
 const val FLAG_SIERPINSKI_TRIANGLE: Int = 13
+const val FLAG_FANCY_CIRCULATION: Int = 14
 
 class HomeActivity : Activity() {
 
@@ -80,6 +81,10 @@ class HomeActivity : Activity() {
 
         sierpinski_triangle.setOnClickListener {
             startActivityWithFlag(FLAG_SIERPINSKI_TRIANGLE)
+        }
+
+        fancy_circulation.setOnClickListener {
+            startActivityWithFlag(FLAG_FANCY_CIRCULATION)
         }
     }
 
