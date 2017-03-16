@@ -119,5 +119,12 @@
             android:layout_gravity="center_horizontal"
             android:text="Reciprocating Motion" />
 
+        <Button
+            android:id="@+id/adapter_to_game"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="Adapter to Game Multi-screen" />
+
     </LinearLayout>
 </ScrollView>
