@@ -12,6 +12,7 @@ import com.ggaier.gamedev.dots.ConnectTheDots
 import com.ggaier.gamedev.dragoncurve.DragonCurve
 import com.ggaier.gamedev.flower.RectangleFlower
 import com.ggaier.gamedev.movement.CirculationMotion
+import com.ggaier.gamedev.movement.ReciprocatingMotion
 import com.ggaier.gamedev.orthographiccamera.OrthographicCamera
 import com.ggaier.gamedev.sierpinskitriangle.SierpinskiTriangle
 import com.ggaier.gamedev.smileyface.SmileyFace
@@ -45,6 +46,7 @@ class AndroidLauncher : AndroidApplication() {
             FLAG_CYCLIC_OVERLAP -> applicationListener = CyclicOverlap()
             FLAG_SIERPINSKI_TRIANGLE -> applicationListener = SierpinskiTriangle()
             FLAG_FANCY_CIRCULATION -> applicationListener = CirculationMotion()
+            FLAG_RECIPROCATING_MOTION -> applicationListener = ReciprocatingMotion()
             else -> {
                 Toast.makeText(this@AndroidLauncher, "Wrong Drawing Type",
                         Toast.LENGTH_LONG).show()

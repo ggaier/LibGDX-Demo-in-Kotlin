@@ -24,6 +24,7 @@ const val FLAG_WORLD_CLOUD: Int = 11
 const val FLAG_CYCLIC_OVERLAP: Int = 12
 const val FLAG_SIERPINSKI_TRIANGLE: Int = 13
 const val FLAG_FANCY_CIRCULATION: Int = 14
+const val FLAG_RECIPROCATING_MOTION: Int = 15
 
 class HomeActivity : Activity() {
 
@@ -85,6 +86,9 @@ class HomeActivity : Activity() {
 
         fancy_circulation.setOnClickListener {
             startActivityWithFlag(FLAG_FANCY_CIRCULATION)
+        }
+        reciprocating_motion.setOnClickListener {
+            startActivityWithFlag(FLAG_RECIPROCATING_MOTION)
         }
     }
 
