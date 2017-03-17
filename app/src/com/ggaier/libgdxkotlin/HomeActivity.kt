@@ -26,6 +26,7 @@ const val FLAG_SIERPINSKI_TRIANGLE: Int = 13
 const val FLAG_FANCY_CIRCULATION: Int = 14
 const val FLAG_RECIPROCATING_MOTION: Int = 15
 const val FLAG_ADAPTER_TO_GAME: Int = 16
+const val FLAG_FPS_SCREEN: Int = 17
 
 class HomeActivity : Activity() {
 
@@ -94,6 +95,9 @@ class HomeActivity : Activity() {
 
         adapter_to_game.setOnClickListener {
             startActivityWithFlag(FLAG_ADAPTER_TO_GAME)
+        }
+        fps_screen.setOnClickListener {
+            startActivityWithFlag(FLAG_FPS_SCREEN)
         }
     }
 

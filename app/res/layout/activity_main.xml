@@ -126,5 +126,12 @@
             android:layout_gravity="center_horizontal"
             android:text="Adapter to Game Multi-screen" />
 
+        <Button
+            android:id="@+id/fps_screen"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="Show FPS" />
+
     </LinearLayout>
 </ScrollView>

@@ -14,6 +14,7 @@ import com.ggaier.gamedev.flower.RectangleFlower
 import com.ggaier.gamedev.movement.CirculationMotion
 import com.ggaier.gamedev.movement.ReciprocatingMotion
 import com.ggaier.gamedev.movement.applicationadaptertogame.MyGame
+import com.ggaier.gamedev.movement.fpscounter.FPSCounterGame
 import com.ggaier.gamedev.orthographiccamera.OrthographicCamera
 import com.ggaier.gamedev.sierpinskitriangle.SierpinskiTriangle
 import com.ggaier.gamedev.smileyface.SmileyFace
@@ -49,6 +50,7 @@ class AndroidLauncher : AndroidApplication() {
             FLAG_FANCY_CIRCULATION -> applicationListener = CirculationMotion()
             FLAG_RECIPROCATING_MOTION -> applicationListener = ReciprocatingMotion()
             FLAG_ADAPTER_TO_GAME -> applicationListener = MyGame()
+            FLAG_FPS_SCREEN -> applicationListener = FPSCounterGame()
             else -> {
                 Toast.makeText(this@AndroidLauncher, "Wrong Drawing Type",
                         Toast.LENGTH_LONG).show()
@@ -58,7 +60,6 @@ class AndroidLauncher : AndroidApplication() {
         if (applicationListener != null) {
             initialize(applicationListener, androidApplicationConfig)
         }
-
     }
 
 
