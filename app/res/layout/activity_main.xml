@@ -133,5 +133,13 @@
             android:layout_gravity="center_horizontal"
             android:text="Show FPS" />
 
+
+        <Button
+            android:id="@+id/falling_objects"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="Falling Objects" />
+
     </LinearLayout>
 </ScrollView>
