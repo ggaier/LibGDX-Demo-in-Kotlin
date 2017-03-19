@@ -45,6 +45,10 @@ class BallScreen: ScreenAdapter(), InputProcessor {
         initBalls()
     }
 
+    /**
+     * @param delta 表示的是自上次渲染之后到这次渲染开始的时间。
+     *              通常用来重绘游戏世界，来模拟游戏世界中物体的运动。
+     */
     override fun render(delta: Float) {
         mViewport.apply()
         Gdx.gl.glClearColor(0f, 0f, 0f, 1f)
