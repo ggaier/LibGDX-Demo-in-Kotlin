@@ -16,6 +16,7 @@ import com.ggaier.gamedev.movement.ReciprocatingMotion
 import com.ggaier.gamedev.movement.applicationadaptertogame.MyGame
 import com.ggaier.gamedev.movement.fallingobjects.FallingObjectsGame
 import com.ggaier.gamedev.movement.fpscounter.FPSCounterGame
+import com.ggaier.gamedev.movement.screensaver.ScreenSaver
 import com.ggaier.gamedev.orthographiccamera.OrthographicCamera
 import com.ggaier.gamedev.sierpinskitriangle.SierpinskiTriangle
 import com.ggaier.gamedev.smileyface.SmileyFace
@@ -53,6 +54,7 @@ class AndroidLauncher : AndroidApplication() {
             FLAG_ADAPTER_TO_GAME -> applicationListener = MyGame()
             FLAG_FPS_SCREEN -> applicationListener = FPSCounterGame()
             FLAG_FALLING_OBJECTS -> applicationListener = FallingObjectsGame()
+            FLAG_BOUNCE_BALL -> applicationListener = ScreenSaver()
             else -> {
                 Toast.makeText(this@AndroidLauncher, "Wrong Drawing Type",
                         Toast.LENGTH_LONG).show()

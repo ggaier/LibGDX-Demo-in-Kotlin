@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
+            xmlns:tools="http://schemas.android.com/tools"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
     <LinearLayout
         android:id="@+id/activity_main"
@@ -19,119 +19,119 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:text="Draw star field" />
+            android:text="Draw star field"/>
 
         <Button
             android:id="@+id/connect_dots"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:text="Connect the dots" />
+            android:text="Connect the dots"/>
 
         <Button
             android:id="@+id/spiral"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:text="Draw a spiral" />
+            android:text="Draw a spiral"/>
 
         <Button
             android:id="@+id/draw_flower"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:text="Draw a flower" />
+            android:text="Draw a flower"/>
 
         <Button
             android:id="@+id/punch_cantor_gasket"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:text="Punch Cantor Gasket" />
+            android:text="Punch Cantor Gasket"/>
 
         <Button
             android:id="@+id/dragon_curve"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:text="Drag dragon curve" />
+            android:text="Drag dragon curve"/>
 
         <Button
             android:id="@+id/stick_figure"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:text="Drag a stick figure" />
+            android:text="Drag a stick figure"/>
 
         <Button
             android:id="@+id/orthographic_camera"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:text="Orthographic Camera Demo" />
+            android:text="Orthographic Camera Demo"/>
 
         <Button
             android:id="@+id/viewports_exercise"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:text="Viewports Exercise" />
+            android:text="Viewports Exercise"/>
 
         <Button
             android:id="@+id/smiley_face"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:text="Draw a Smiley Face" />
+            android:text="Draw a Smiley Face"/>
 
         <Button
             android:id="@+id/world_cloud"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:text="Draw a Word Cloud" />
+            android:text="Draw a Word Cloud"/>
 
         <Button
             android:id="@+id/cyclic_overlap"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:text="Draw a Cyclic Overlap" />
+            android:text="Draw a Cyclic Overlap"/>
 
         <Button
             android:id="@+id/sierpinski_triangle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:text="Draw a Sierpinski Triangle" />
+            android:text="Draw a Sierpinski Triangle"/>
 
         <Button
             android:id="@+id/fancy_circulation"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:text="Fancy Circulation" />
+            android:text="Fancy Circulation"/>
 
         <Button
             android:id="@+id/reciprocating_motion"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:text="Reciprocating Motion" />
+            android:text="Reciprocating Motion"/>
 
         <Button
             android:id="@+id/adapter_to_game"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:text="Adapter to Game Multi-screen" />
+            android:text="Adapter to Game Multi-screen"/>
 
         <Button
             android:id="@+id/fps_screen"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:text="Show FPS" />
+            android:text="Show FPS"/>
 
 
         <Button
@@ -139,7 +139,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:text="Falling Objects" />
+            android:text="Falling Objects"/>
+
+        <Button
+            android:id="@+id/bounce_ball"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="Bounce Ball Screen"/>
 
     </LinearLayout>
 </ScrollView>

@@ -15,7 +15,7 @@ import com.badlogic.gdx.utils.viewport.ExtendViewport
 private const val WORLD_SIZE = 480f
 private const val BALL_COUNT = 10000
 
-class BallScreen : ScreenAdapter(), InputProcessor {
+class BallScreen(): ScreenAdapter(), InputProcessor {
 
     lateinit var mRenderer: ShapeRenderer
     lateinit var mViewport: ExtendViewport

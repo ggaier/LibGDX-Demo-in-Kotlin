@@ -28,6 +28,7 @@ const val FLAG_RECIPROCATING_MOTION: Int = 15
 const val FLAG_ADAPTER_TO_GAME: Int = 16
 const val FLAG_FPS_SCREEN: Int = 17
 const val FLAG_FALLING_OBJECTS: Int = 18
+const val FLAG_BOUNCE_BALL: Int = 19
 
 class HomeActivity : Activity() {
 
@@ -102,6 +103,9 @@ class HomeActivity : Activity() {
         }
         falling_objects.setOnClickListener {
             startActivityWithFlag(FLAG_FALLING_OBJECTS)
+        }
+        bounce_ball.setOnClickListener {
+            startActivityWithFlag(FLAG_BOUNCE_BALL)
         }
     }
 
