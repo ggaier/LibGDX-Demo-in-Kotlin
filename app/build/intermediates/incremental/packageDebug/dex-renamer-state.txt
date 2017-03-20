@@ -1,0 +1,7 @@
+#Sun Mar 19 15:29:56 CST 2017
+base.0=/Users/ggaier/programme/android/code/LibGDXKotlin/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run_310262a53b167c6dcc952b8390494bc1064434de
+renamed.1=classes2.dex
+renamed.0=classes.dex
+file.1=/Users/ggaier/programme/android/code/LibGDXKotlin/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run-bootstrap_2a3fd209a2b43e4ab1cc35f894ebd5f61176b9f8/classes.dex
+base.1=/Users/ggaier/programme/android/code/LibGDXKotlin/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run-bootstrap_2a3fd209a2b43e4ab1cc35f894ebd5f61176b9f8
+file.0=/Users/ggaier/programme/android/code/LibGDXKotlin/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run_310262a53b167c6dcc952b8390494bc1064434de/classes.dex

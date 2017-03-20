@@ -1,1 +1,1 @@
-include ':app', ':core', ':desktop'
+include 'desktop', 'android', 'ios', 'html', 'core'

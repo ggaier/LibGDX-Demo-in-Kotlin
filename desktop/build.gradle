@@ -1,13 +1,10 @@
-apply plugin: 'java'
-apply plugin: 'kotlin'
+apply plugin: "java"
 
+sourceCompatibility = 1.6
 sourceSets.main.java.srcDirs = [ "src/" ]
-sourceSets {
-    main.java.srcDirs += 'src/main/kotlin'
-}
 
-project.ext.mainClassName = "com.ggaier.libgdxkotlin.inputtestbed.DesktopLauncher"
-project.ext.assetsDir = new File("../app/assets");
+project.ext.mainClassName = "com.ggaier.game.libgdxdemo.desktop.DesktopLauncher"
+project.ext.assetsDir = new File("../android/assets");
 
 task run(dependsOn: classes, type: JavaExec) {
     main = project.mainClassName
@@ -17,12 +14,21 @@ task run(dependsOn: classes, type: JavaExec) {
     ignoreExitValue = true
 }
 
+task debug(dependsOn: classes, type: JavaExec) {
+    main = project.mainClassName
+    classpath = sourceSets.main.runtimeClasspath
+    standardInput = System.in
+    workingDir = project.assetsDir
+    ignoreExitValue = true
+    debug = true
+}
+
 task dist(type: Jar) {
     from files(sourceSets.main.output.classesDir)
     from files(sourceSets.main.output.resourcesDir)
     from {configurations.compile.collect {zipTree(it)}}
     from files(project.assetsDir);
-
+ 
     manifest {
         attributes 'Main-Class': project.mainClassName
     }
@@ -30,10 +36,20 @@ task dist(type: Jar) {
 
 dist.dependsOn classes
 
-dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
-    compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+eclipse {
+    project {
+        name = appName + "-desktop"
+        linkedResource name: 'assets', type: '2', location: 'PARENT-1-PROJECT_LOC/android/assets'
+    }
 }
 
-sourceCompatibility = "1.7"
-targetCompatibility = "1.7"
+task afterEclipseImport(description: "Post processing after project generation", group: "IDE") {
+  doLast {
+    def classpath = new XmlParser().parse(file(".classpath"))
+    new Node(classpath, "classpathentry", [ kind: 'src', path: 'assets' ]);
+    def writer = new FileWriter(file(".classpath"))
+    def printer = new XmlNodePrinter(new PrintWriter(writer))
+    printer.setPreserveWhitespace(true)
+    printer.print(classpath)
+  }
+}

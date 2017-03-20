@@ -1,0 +1,18 @@
+[
+    {
+        "merged": "/Users/ggaier/programme/android/code/LibGDXKotlin/app/build/intermediates/res/merged/debug/layout-v21/notification_action_tombstone.xml",
+        "source": "/Users/ggaier/.android/build-cache/ba12ad8f574491d3e648bcffde0526e806bf7cb4/output/res/layout-v21/notification_action_tombstone.xml"
+    },
+    {
+        "merged": "/Users/ggaier/programme/android/code/LibGDXKotlin/app/build/intermediates/res/merged/debug/layout-v21/notification_template_icon_group.xml",
+        "source": "/Users/ggaier/.android/build-cache/ba12ad8f574491d3e648bcffde0526e806bf7cb4/output/res/layout-v21/notification_template_icon_group.xml"
+    },
+    {
+        "merged": "/Users/ggaier/programme/android/code/LibGDXKotlin/app/build/intermediates/res/merged/debug/layout-v21/notification_template_custom_big.xml",
+        "source": "/Users/ggaier/.android/build-cache/ba12ad8f574491d3e648bcffde0526e806bf7cb4/output/res/layout-v21/notification_template_custom_big.xml"
+    },
+    {
+        "merged": "/Users/ggaier/programme/android/code/LibGDXKotlin/app/build/intermediates/res/merged/debug/layout-v21/notification_action.xml",
+        "source": "/Users/ggaier/.android/build-cache/ba12ad8f574491d3e648bcffde0526e806bf7cb4/output/res/layout-v21/notification_action.xml"
+    }
+]
