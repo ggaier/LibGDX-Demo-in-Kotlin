@@ -1,4 +1,0 @@
-#Sun Mar 19 15:31:34 CST 2017
-base.0=/Users/ggaier/programme/android/code/LibGDXKotlin/app/build/intermediates/transforms/dex/debug/folders/1000/5/slice_4
-renamed.0=classes.dex
-file.0=/Users/ggaier/programme/android/code/LibGDXKotlin/app/build/intermediates/transforms/dex/debug/folders/1000/5/slice_4/classes.dex
