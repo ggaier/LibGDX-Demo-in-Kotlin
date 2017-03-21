@@ -22,17 +22,16 @@ private const val ACCELERATION = 500.0f
 private const val MAX_SPEED = 1000.0f
 private const val KICK_VELOCITY = 500.0f
 
-class BouncingBall(viewport: Viewport) : InputAdapter() {
+class BouncingBall(val viewport: Viewport) : InputAdapter() {
 
     val COLOR: Color = Color.RED
     var mRadiusMultiplier = Float.MIN_VALUE
     var mRadius = Float.MIN_VALUE
     lateinit var mPosition: Vector2
     lateinit var mVelocity: Vector2
-    val mViewport = viewport
 
     init {
-        init(mViewport)
+        init(viewport)
     }
 
     fun init(viewport: Viewport) {
@@ -118,7 +117,7 @@ class BouncingBall(viewport: Viewport) : InputAdapter() {
         if (keycode == Input.Keys.SPACE) {
             randomKick()
         } else if (keycode == Input.Keys.R) {
-            init(mViewport)
+            init(viewport)
         }
         return true
     }
