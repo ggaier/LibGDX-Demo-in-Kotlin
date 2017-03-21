@@ -23,6 +23,7 @@ class BallScreen : ScreenAdapter() {
         mRenderer.setAutoShapeType(true)
         mViewport = ExtendViewport(WORLD_SIZE, WORLD_SIZE)
         mBall = BouncingBall(mViewport)
+        Gdx.input.inputProcessor = mBall
     }
 
     override fun resize(width: Int, height: Int) {

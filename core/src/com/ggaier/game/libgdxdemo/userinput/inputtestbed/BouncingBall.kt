@@ -2,6 +2,7 @@ package com.ggaier.game.libgdxdemo.userinput.inputtestbed
 
 import com.badlogic.gdx.Gdx
 import com.badlogic.gdx.Input
+import com.badlogic.gdx.InputAdapter
 import com.badlogic.gdx.graphics.Color
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer
 import com.badlogic.gdx.math.MathUtils
@@ -21,7 +22,7 @@ private const val ACCELERATION = 500.0f
 private const val MAX_SPEED = 1000.0f
 private const val KICK_VELOCITY = 500.0f
 
-class BouncingBall(viewport: Viewport) {
+class BouncingBall(viewport: Viewport) : InputAdapter() {
 
     val COLOR = Color.RED
     var mRadiusMutiplier = Float.MIN_VALUE
@@ -110,6 +111,13 @@ class BouncingBall(viewport: Viewport) {
         renderer.set(ShapeRenderer.ShapeType.Filled)
         renderer.color = COLOR
         renderer.circle(mPosition.x, mPosition.y, mRadius)
+    }
+
+    override fun keyDown(keycode: Int): Boolean {
+        if(keycode==Input.Keys.SPACE){
+            randomKick()
+        }
+        return true
     }
 
 
