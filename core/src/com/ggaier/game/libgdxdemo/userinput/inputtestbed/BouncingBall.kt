@@ -24,22 +24,23 @@ private const val KICK_VELOCITY = 500.0f
 
 class BouncingBall(viewport: Viewport) : InputAdapter() {
 
-    val COLOR = Color.RED
-    var mRadiusMutiplier = Float.MIN_VALUE
+    val COLOR: Color = Color.RED
+    var mRadiusMultiplier = Float.MIN_VALUE
     var mRadius = Float.MIN_VALUE
     lateinit var mPosition: Vector2
     lateinit var mVelocity: Vector2
+    val mViewport = viewport
 
     init {
-        init(viewport)
+        init(mViewport)
     }
 
     fun init(viewport: Viewport) {
         mPosition = Vector2(viewport.worldWidth / 2, viewport.worldHeight / 2)
         mVelocity = Vector2()
-        mRadiusMutiplier = 1f
-        mRadius = BASE_RADIUS * mRadiusMutiplier
-        mRadiusMutiplier = 1f
+        mRadiusMultiplier = 1f
+        mRadius = BASE_RADIUS * mRadiusMultiplier
+        mRadiusMultiplier = 1f
     }
 
     private fun randomKick() {
@@ -51,15 +52,15 @@ class BouncingBall(viewport: Viewport) : InputAdapter() {
 
     fun update(delta: Float, viewport: Viewport) {
         if (Gdx.input.isKeyPressed(Input.Keys.Z)) {
-            mRadiusMutiplier += delta * RADIUS_GROWTH_RATE
+            mRadiusMultiplier += delta * RADIUS_GROWTH_RATE
         }
 
         if (Gdx.input.isKeyPressed(Input.Keys.X)) {
-            mRadiusMutiplier -= delta * RADIUS_GROWTH_RATE
-            mRadiusMutiplier = Math.max(mRadiusMutiplier, MIN_RADIUS_MULTIPLIER)
+            mRadiusMultiplier -= delta * RADIUS_GROWTH_RATE
+            mRadiusMultiplier = Math.max(mRadiusMultiplier, MIN_RADIUS_MULTIPLIER)
         }
 
-        mRadius = mRadiusMutiplier * BASE_RADIUS
+        mRadius = mRadiusMultiplier * BASE_RADIUS
         if (Gdx.input.isKeyPressed(Input.Keys.LEFT)) {
             mVelocity.x -= delta * ACCELERATION
         }
@@ -114,8 +115,10 @@ class BouncingBall(viewport: Viewport) : InputAdapter() {
     }
 
     override fun keyDown(keycode: Int): Boolean {
-        if(keycode==Input.Keys.SPACE){
+        if (keycode == Input.Keys.SPACE) {
             randomKick()
+        } else if (keycode == Input.Keys.R) {
+            init(mViewport)
         }
         return true
     }
