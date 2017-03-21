@@ -9,6 +9,7 @@ import com.badlogic.gdx.Game
 class InputTestBed: Game(){
 
     override fun create() {
+        setScreen(BallScreen())
     }
 
 }
