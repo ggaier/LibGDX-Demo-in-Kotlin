@@ -93,6 +93,11 @@ class BubbleLevelScreen : ScreenAdapter() {
         mRenderer.end()
     }
 
+    /**
+     * this is called extension functions. the "this " in extension funtion
+     * denotes the receiver parameter that is passed on the left-hand side
+     * of a dot, which in this method is a float receiver
+     */
     private fun Float.format(digits: Int) = String.format("%.${digits}f", this)
 
 }
