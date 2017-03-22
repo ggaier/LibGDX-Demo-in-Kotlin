@@ -78,8 +78,9 @@ class BubbleLevelScreen : ScreenAdapter() {
         mBatch.projectionMatrix = mTextViewport.camera.combined
         mBatch.begin()
         val message = "Accelerometer reads: " +
-                "\nx=$xAxis\ny=$yAxis\nz=$zAxis\ntotal=$totalAcceleration\nmax=$mMaxAcceleration" +
-                "\nmin=$mMinAcceleration "
+                "\nx=$xAxis\ny=$yAxis\nz=$zAxis\ntotal=$totalAcceleration\nmax=${mMaxAcceleration
+                        .format(2)}" +
+                "\nmin=${mMinAcceleration.format(2)} "
         mFont.draw(mBatch, message, 40f, mTextViewport.worldHeight - 40f)
         mBatch.end()
 
@@ -92,5 +93,6 @@ class BubbleLevelScreen : ScreenAdapter() {
         mRenderer.end()
     }
 
+    private fun Float.format(digits: Int) = String.format("%.${digits}f", this)
 
 }
