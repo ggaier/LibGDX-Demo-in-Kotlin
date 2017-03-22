@@ -148,5 +148,19 @@
             android:layout_gravity="center_horizontal"
             android:text="Bounce Ball Screen"/>
 
+        <Button
+            android:id="@+id/bounce_ball_with_input"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="User Input Bounce Ball Screen"/>
+
+        <Button
+            android:id="@+id/bubble_level"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="Bubble Level Screen"/>
+
     </LinearLayout>
 </ScrollView>
