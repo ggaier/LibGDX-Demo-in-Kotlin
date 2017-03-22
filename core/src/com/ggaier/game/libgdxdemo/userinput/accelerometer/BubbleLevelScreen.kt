@@ -81,6 +81,7 @@ class BubbleLevelScreen : ScreenAdapter() {
                 "\nx=$xAxis\ny=$yAxis\nz=$zAxis\ntotal=$totalAcceleration\nmax=$mMaxAcceleration" +
                 "\nmin=$mMinAcceleration "
         mFont.draw(mBatch, message, 40f, mTextViewport.worldHeight - 40f)
+        mBatch.end()
 
         mAxisViewport.apply()
         mRenderer.projectionMatrix = mAxisViewport.camera.combined
