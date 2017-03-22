@@ -21,14 +21,20 @@ private const val MIN_RADIUS_MULTIPLIER = 0.1f
 private const val ACCELERATION = 500.0f
 private const val MAX_SPEED = 1000.0f
 private const val KICK_VELOCITY = 500.0f
+private const val FOLLOW_MULTIPLIER = 2.0f
 
 class BouncingBall(val viewport: Viewport) : InputAdapter() {
 
     val COLOR: Color = Color.RED
     var mRadiusMultiplier = Float.MIN_VALUE
-    var mRadius = Float.MIN_VALUE
+    var mBaseRadius = Float.MIN_VALUE
     lateinit var mPosition: Vector2
     lateinit var mVelocity: Vector2
+
+    lateinit var mFlickStart: Vector2
+    var mFlicking: Boolean = false
+    lateinit var mTargetPosition: Vector2
+    var mFollowing: Boolean = false
 
     init {
         init(viewport)
@@ -38,7 +44,7 @@ class BouncingBall(val viewport: Viewport) : InputAdapter() {
         mPosition = Vector2(viewport.worldWidth / 2, viewport.worldHeight / 2)
         mVelocity = Vector2()
         mRadiusMultiplier = 1f
-        mRadius = BASE_RADIUS * mRadiusMultiplier
+        mBaseRadius = BASE_RADIUS * mRadiusMultiplier
         mRadiusMultiplier = 1f
     }
 
@@ -59,7 +65,14 @@ class BouncingBall(val viewport: Viewport) : InputAdapter() {
             mRadiusMultiplier = Math.max(mRadiusMultiplier, MIN_RADIUS_MULTIPLIER)
         }
 
-        mRadius = mRadiusMultiplier * BASE_RADIUS
+        if (mFollowing) {
+            val followVector = Vector2(mTargetPosition.x - mPosition.x,
+                    mTargetPosition.y - mPosition.y)
+            mVelocity.x = FOLLOW_MULTIPLIER * followVector.x
+            mVelocity.y = FOLLOW_MULTIPLIER * followVector.y
+        }
+
+        mBaseRadius = mRadiusMultiplier * BASE_RADIUS
         if (Gdx.input.isKeyPressed(Input.Keys.LEFT)) {
             mVelocity.x -= delta * ACCELERATION
         }
@@ -85,7 +98,7 @@ class BouncingBall(val viewport: Viewport) : InputAdapter() {
         mPosition.x += delta * mVelocity.x
         mPosition.y += delta * mVelocity.y
 
-        collideWithWalls(mRadius, viewport.worldWidth, viewport.worldHeight)
+        collideWithWalls(mBaseRadius, viewport.worldWidth, viewport.worldHeight)
     }
 
     private fun collideWithWalls(radius: Float, viewportWidth: Float, viewportHeight: Float) {
@@ -110,7 +123,7 @@ class BouncingBall(val viewport: Viewport) : InputAdapter() {
     fun render(renderer: ShapeRenderer) {
         renderer.set(ShapeRenderer.ShapeType.Filled)
         renderer.color = COLOR
-        renderer.circle(mPosition.x, mPosition.y, mRadius)
+        renderer.circle(mPosition.x, mPosition.y, mBaseRadius)
     }
 
     override fun keyDown(keycode: Int): Boolean {
@@ -119,6 +132,39 @@ class BouncingBall(val viewport: Viewport) : InputAdapter() {
         } else if (keycode == Input.Keys.R) {
             init(viewport)
         }
+        return true
+    }
+
+
+    override fun touchDown(screenX: Int, screenY: Int, pointer: Int, button: Int): Boolean {
+        val worldClick = viewport.unproject(Vector2(screenX.toFloat(), screenY.toFloat()))
+        if (worldClick.dst(mPosition) < mBaseRadius * mRadiusMultiplier) {
+            Gdx.app.log("ball", "Click in the ball, start flick. ")
+            mFlicking = true
+            mFlickStart = worldClick
+        } else {
+            mTargetPosition = worldClick
+            mFollowing = true
+        }
+        return true
+    }
+
+    override fun touchDragged(screenX: Int, screenY: Int, pointer: Int): Boolean {
+        if (mFollowing) {
+            mTargetPosition = viewport.unproject(Vector2(screenX.toFloat(), screenY.toFloat()))
+        }
+        return true
+    }
+
+    override fun touchUp(screenX: Int, screenY: Int, pointer: Int, button: Int): Boolean {
+        if (mFlicking) {
+            mFlicking = false
+            val flickEnd = viewport.unproject(Vector2(screenX.toFloat(), screenY.toFloat()))
+            mVelocity.x += 3 * (flickEnd.x - mFlickStart.x)
+            mVelocity.y += 3 * (flickEnd.y - mFlickStart.y)
+            Gdx.app.log("Ball", " end flick")
+        }
+        mFollowing = false
         return true
     }
 
