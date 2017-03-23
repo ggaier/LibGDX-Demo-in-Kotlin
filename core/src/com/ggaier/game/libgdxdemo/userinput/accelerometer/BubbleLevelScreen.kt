@@ -88,7 +88,14 @@ class BubbleLevelScreen : ScreenAdapter() {
         mRenderer.projectionMatrix = mAxisViewport.camera.combined
         mRenderer.begin(ShapeRenderer.ShapeType.Line)
         mRenderer.color = Color.RED
+        mRenderer.circle(WORLD_SIZE / 2, WORLD_SIZE / 2, WORLD_SIZE / 4 + WORLD_SIZE / 50, 64)
+
+        mRenderer.color = Color.GREEN
         mRenderer.circle(WORLD_SIZE / 2, WORLD_SIZE / 2, WORLD_SIZE / 40, 64)
+        mRenderer.set(ShapeRenderer.ShapeType.Filled)
+        mRenderer.circle(WORLD_SIZE * (.5f - .25f * yAxis / totalAcceleration),
+                WORLD_SIZE * (.5f - .25f * xAxis / totalAcceleration),
+                WORLD_SIZE / 50, 64)
 
         mRenderer.end()
     }
