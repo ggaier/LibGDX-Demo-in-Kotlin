@@ -22,6 +22,7 @@ import com.ggaier.game.libgdxdemo.smileyface.SmileyFace
 import com.ggaier.game.libgdxdemo.spirals.DrawASpiral
 import com.ggaier.game.libgdxdemo.stickfigure.DrawAStickFigure
 import com.ggaier.game.libgdxdemo.userinput.accelerometer.BubbleLevelGame
+import com.ggaier.game.libgdxdemo.userinput.accelerometermovement.AccelerometerBallGame
 import com.ggaier.game.libgdxdemo.userinput.inputtestbed.InputTestBed
 import com.ggaier.game.libgdxdemo.viewports.ViewportsExercise
 import com.ggaier.game.libgdxdemo.worldcloud.WorldCloud
@@ -58,6 +59,7 @@ class AndroidLauncher : AndroidApplication() {
             FLAG_BOUNCE_BALL -> applicationListener = ScreenSaver()
             FLAG_BOUNCE_BALL_WITH_INPUT -> applicationListener = InputTestBed()
             FLAG_BUBBLE_LEVEL -> applicationListener = BubbleLevelGame()
+            FLAG_BOUNCE_BALL_WITH_ACCELERATOR -> applicationListener = AccelerometerBallGame()
             else -> {
                 Toast.makeText(this@AndroidLauncher, "Wrong Drawing Type",
                         Toast.LENGTH_LONG).show()

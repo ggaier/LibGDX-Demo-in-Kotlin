@@ -1,4 +1,4 @@
-package com.ggaier.game.libgdxdemo.userinput.inputtestbed
+package com.ggaier.game.libgdxdemo.userinput.accelerometermovement
 
 import com.badlogic.gdx.Gdx
 import com.badlogic.gdx.Input
@@ -11,23 +11,25 @@ import com.badlogic.gdx.utils.viewport.Viewport
 import java.util.*
 
 /**
- * Created by ggaier at 21/03/2017 .
+ * Created by ggaier at 24/03/2017 .
  * jwenbo52@gmail.com
  */
-private const val DRAG = 1.0f
-private const val BASE_RADIUS = 20.0f
+private val COLOR = Color.RED
+private const val DRAG = 0.5f
+private const val RADIUS_FACTOR = 1.0f / 20
 private const val RADIUS_GROWTH_RATE = 1.5f
 private const val MIN_RADIUS_MULTIPLIER = 0.1f
 private const val ACCELERATION = 500.0f
-private const val MAX_SPEED = 1000.0f
+private const val MAX_SPEED = 4000.0f
+private const val ACCELEROMETER_SENSITIVITY = 0.5f
+private const val ACCELERATION_OF_GRAVITY = 9.8f
 private const val KICK_VELOCITY = 500.0f
-private const val FOLLOW_MULTIPLIER = 2.0f
 
-class BouncingBall(val viewport: Viewport) : InputAdapter() {
+class BounceBall(val viewport: Viewport) : InputAdapter() {
 
-    val COLOR: Color = Color.RED
-    var mRadiusMultiplier = Float.MIN_VALUE
-    var mBaseRadius = Float.MIN_VALUE
+    var mLastKick: Long = Long.MIN_VALUE
+    var mBaseRadius: Float = Float.MIN_VALUE
+    var mRadiusMultiplier: Float = Float.MIN_VALUE
     lateinit var mPosition: Vector2
     lateinit var mVelocity: Vector2
 
@@ -37,14 +39,13 @@ class BouncingBall(val viewport: Viewport) : InputAdapter() {
     var mFollowing: Boolean = false
 
     init {
-        init(viewport)
+        init()
     }
 
-    fun init(viewport: Viewport) {
+    fun init() {
         mPosition = Vector2(viewport.worldWidth / 2, viewport.worldHeight / 2)
         mVelocity = Vector2()
-        mRadiusMultiplier = 1f
-        mBaseRadius = BASE_RADIUS * mRadiusMultiplier
+        mBaseRadius = RADIUS_FACTOR * Math.min(viewport.worldWidth, viewport.worldHeight)
         mRadiusMultiplier = 1f
     }
 
@@ -62,17 +63,15 @@ class BouncingBall(val viewport: Viewport) : InputAdapter() {
 
         if (Gdx.input.isKeyPressed(Input.Keys.X)) {
             mRadiusMultiplier -= delta * RADIUS_GROWTH_RATE
-            mRadiusMultiplier = Math.max(mRadiusMultiplier, MIN_RADIUS_MULTIPLIER)
+            mRadiusMultiplier = Math.max(mRadiusMultiplier,
+                    MIN_RADIUS_MULTIPLIER)
         }
 
         if (mFollowing) {
-            val followVector = Vector2(mTargetPosition.x - mPosition.x,
-                    mTargetPosition.y - mPosition.y)
-            mVelocity.x = FOLLOW_MULTIPLIER * followVector.x
-            mVelocity.y = FOLLOW_MULTIPLIER * followVector.y
+            mVelocity.x = 2 * (mTargetPosition.x - mPosition.x)
+            mVelocity.y = 2 * (mTargetPosition.y - mPosition.y)
         }
 
-        mBaseRadius = mRadiusMultiplier * BASE_RADIUS
         if (Gdx.input.isKeyPressed(Input.Keys.LEFT)) {
             mVelocity.x -= delta * ACCELERATION
         }
@@ -89,6 +88,15 @@ class BouncingBall(val viewport: Viewport) : InputAdapter() {
             mVelocity.y -= delta * ACCELERATION
         }
 
+        val xAxis = -Gdx.input.accelerometerY
+        val yAxis = Gdx.input.accelerometerX
+
+        val accelerationX = -ACCELERATION * xAxis / (ACCELEROMETER_SENSITIVITY * ACCELERATION_OF_GRAVITY)
+        val accelerationY = -ACCELERATION * yAxis / (ACCELEROMETER_SENSITIVITY * ACCELERATION_OF_GRAVITY)
+
+        mVelocity.x += delta * accelerationX
+        mVelocity.y += delta * accelerationY
+
         //限制球的运行速度不超过最小值和最大值
         mVelocity.clamp(0f, MAX_SPEED)
 
@@ -98,8 +106,9 @@ class BouncingBall(val viewport: Viewport) : InputAdapter() {
         mPosition.x += delta * mVelocity.x
         mPosition.y += delta * mVelocity.y
 
-        collideWithWalls(mBaseRadius, viewport.worldWidth, viewport.worldHeight)
+        collideWithWalls(mBaseRadius * mRadiusMultiplier, viewport.worldWidth, viewport.worldHeight)
     }
+
 
     private fun collideWithWalls(radius: Float, viewportWidth: Float, viewportHeight: Float) {
         if (mPosition.x - radius < 0) {
@@ -131,11 +140,10 @@ class BouncingBall(val viewport: Viewport) : InputAdapter() {
             randomKick()
         }
         if (keycode == Input.Keys.R) {
-            init(viewport)
+            init()
         }
         return true
     }
-
 
     override fun touchDown(screenX: Int, screenY: Int, pointer: Int, button: Int): Boolean {
         val worldClick = viewport.unproject(Vector2(screenX.toFloat(), screenY.toFloat()))
@@ -151,9 +159,7 @@ class BouncingBall(val viewport: Viewport) : InputAdapter() {
     }
 
     override fun touchDragged(screenX: Int, screenY: Int, pointer: Int): Boolean {
-        if (mFollowing) {
-            mTargetPosition = viewport.unproject(Vector2(screenX.toFloat(), screenY.toFloat()))
-        }
+        mTargetPosition = viewport.unproject(Vector2(screenX.toFloat(), screenY.toFloat()))
         return true
     }
 
@@ -168,6 +174,5 @@ class BouncingBall(val viewport: Viewport) : InputAdapter() {
         mFollowing = false
         return true
     }
-
 
 }

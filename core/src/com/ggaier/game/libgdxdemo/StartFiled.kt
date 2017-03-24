@@ -40,7 +40,6 @@ class StartFiled : ApplicationAdapter(){
             mShapeRender.point(star.x,star.y,0f)
         }
         mShapeRender.end()
-
     }
 
 

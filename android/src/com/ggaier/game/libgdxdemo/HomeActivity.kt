@@ -31,6 +31,7 @@ const val FLAG_FALLING_OBJECTS: Int = 18
 const val FLAG_BOUNCE_BALL: Int = 19
 const val FLAG_BOUNCE_BALL_WITH_INPUT: Int = 20
 const val FLAG_BUBBLE_LEVEL: Int = 21
+const val FLAG_BOUNCE_BALL_WITH_ACCELERATOR: Int = 22
 
 class HomeActivity : Activity() {
 
@@ -114,6 +115,10 @@ class HomeActivity : Activity() {
         }
         bubble_level.setOnClickListener {
             startActivityWithFlag(FLAG_BUBBLE_LEVEL)
+        }
+
+        bounce_ball_with_accelerator.setOnClickListener {
+            startActivityWithFlag(FLAG_BOUNCE_BALL_WITH_ACCELERATOR)
         }
     }
 
