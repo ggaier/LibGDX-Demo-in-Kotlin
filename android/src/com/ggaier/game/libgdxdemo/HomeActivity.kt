@@ -32,6 +32,7 @@ const val FLAG_BOUNCE_BALL: Int = 19
 const val FLAG_BOUNCE_BALL_WITH_INPUT: Int = 20
 const val FLAG_BUBBLE_LEVEL: Int = 21
 const val FLAG_BOUNCE_BALL_WITH_ACCELERATOR: Int = 22
+const val FLAG_ICICLES_GAME: Int = 23
 
 class HomeActivity : Activity() {
 
@@ -119,6 +120,9 @@ class HomeActivity : Activity() {
 
         bounce_ball_with_accelerator.setOnClickListener {
             startActivityWithFlag(FLAG_BOUNCE_BALL_WITH_ACCELERATOR)
+        }
+        icicles.setOnClickListener {
+            startActivityWithFlag(FLAG_ICICLES_GAME)
         }
     }
 

@@ -10,6 +10,7 @@ import com.ggaier.game.libgdxdemo.cyclicoverlap.CyclicOverlap
 import com.ggaier.game.libgdxdemo.dots.ConnectTheDots
 import com.ggaier.game.libgdxdemo.dragoncurve.DragonCurve
 import com.ggaier.game.libgdxdemo.flower.RectangleFlower
+import com.ggaier.game.libgdxdemo.icicles.IciclesGame
 import com.ggaier.game.libgdxdemo.movement.CirculationMotion
 import com.ggaier.game.libgdxdemo.movement.ReciprocatingMotion
 import com.ggaier.game.libgdxdemo.movement.applicationadaptertogame.MyGame
@@ -60,6 +61,7 @@ class AndroidLauncher : AndroidApplication() {
             FLAG_BOUNCE_BALL_WITH_INPUT -> applicationListener = InputTestBed()
             FLAG_BUBBLE_LEVEL -> applicationListener = BubbleLevelGame()
             FLAG_BOUNCE_BALL_WITH_ACCELERATOR -> applicationListener = AccelerometerBallGame()
+            FLAG_ICICLES_GAME -> applicationListener = IciclesGame()
             else -> {
                 Toast.makeText(this@AndroidLauncher, "Wrong Drawing Type",
                         Toast.LENGTH_LONG).show()
