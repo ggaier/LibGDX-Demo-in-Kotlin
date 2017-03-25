@@ -25,8 +25,8 @@ class IcicleScreen : ScreenAdapter() {
     }
 
     override fun render(delta: Float) {
-        mIcicleViewport.apply()
-        Gdx.gl.glClearColor(0f, 0f, 0f, 1f)
+        mIcicleViewport.apply(true)
+        Gdx.gl.glClearColor(BACKGROUND_CLOLR.r, BACKGROUND_CLOLR.g, BACKGROUND_CLOLR.b, 1f)
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT)
 
         mRenderer.projectionMatrix = mIcicleViewport.camera.combined
@@ -43,5 +43,8 @@ class IcicleScreen : ScreenAdapter() {
         mRenderer.dispose()
     }
 
+    override fun hide() {
+        mRenderer.dispose()
+    }
 
 }
