@@ -23,16 +23,18 @@ class IcicleScreen : ScreenAdapter() {
         mRenderer = ShapeRenderer()
         mRenderer.setAutoShapeType(true)
         mIcicle = Icicle(Vector2(WORLD_SIZE / 2, WORLD_SIZE / 2))
-        mPlayer=Player(mIciclesViewport)
+        mPlayer = Player(mIciclesViewport)
     }
 
     override fun render(delta: Float) {
+        mPlayer.update(delta)
         mIciclesViewport.apply(true)
         Gdx.gl.glClearColor(BACKGROUND_COLOR.r, BACKGROUND_COLOR.g, BACKGROUND_COLOR.b, 1f)
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT)
 
         mRenderer.projectionMatrix = mIciclesViewport.camera.combined
         mRenderer.begin(ShapeRenderer.ShapeType.Filled)
+        mRenderer.color = ICICLE_COLOR
         mIcicle.render(mRenderer)
         mPlayer.render(mRenderer)
         mRenderer.end()
