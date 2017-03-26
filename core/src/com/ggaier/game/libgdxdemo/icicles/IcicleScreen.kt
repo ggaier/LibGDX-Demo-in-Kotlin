@@ -13,30 +13,34 @@ import com.badlogic.gdx.utils.viewport.ExtendViewport
  */
 class IcicleScreen : ScreenAdapter() {
 
-    lateinit var mIcicleViewport: ExtendViewport
+    lateinit var mIciclesViewport: ExtendViewport
     lateinit var mRenderer: ShapeRenderer
     lateinit var mIcicle: Icicle
+    lateinit var mPlayer: Player
 
     override fun show() {
-        mIcicleViewport = ExtendViewport(WORLD_SIZE, WORLD_SIZE)
+        mIciclesViewport = ExtendViewport(WORLD_SIZE, WORLD_SIZE)
         mRenderer = ShapeRenderer()
         mRenderer.setAutoShapeType(true)
         mIcicle = Icicle(Vector2(WORLD_SIZE / 2, WORLD_SIZE / 2))
+        mPlayer=Player(mIciclesViewport)
     }
 
     override fun render(delta: Float) {
-        mIcicleViewport.apply(true)
-        Gdx.gl.glClearColor(BACKGROUND_CLOLR.r, BACKGROUND_CLOLR.g, BACKGROUND_CLOLR.b, 1f)
+        mIciclesViewport.apply(true)
+        Gdx.gl.glClearColor(BACKGROUND_COLOR.r, BACKGROUND_COLOR.g, BACKGROUND_COLOR.b, 1f)
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT)
 
-        mRenderer.projectionMatrix = mIcicleViewport.camera.combined
+        mRenderer.projectionMatrix = mIciclesViewport.camera.combined
         mRenderer.begin(ShapeRenderer.ShapeType.Filled)
         mIcicle.render(mRenderer)
+        mPlayer.render(mRenderer)
         mRenderer.end()
     }
 
     override fun resize(width: Int, height: Int) {
-        mIcicleViewport.update(width, height)
+        mIciclesViewport.update(width, height)
+        mPlayer.init()
     }
 
     override fun dispose() {

@@ -7,7 +7,12 @@ import com.badlogic.gdx.graphics.Color
  * jwenbo52@gmail.com
  */
 val ICICLE_COLOR: Color = Color.WHITE
-val BACKGROUND_CLOLR: Color = Color.BLUE
+val BACKGROUND_COLOR: Color = Color.BLUE
 const val ICICLE_WIDTH = 0.5f
 const val ICICLE_HEIGHT = 1.0f
 const val WORLD_SIZE = 10.0f
+val PLAYER_COLOR: Color = Color.BLACK
+const val PLAYER_HEADER_RADIUS = 0.5f
+const val PLAYER_HEAD_HEIGHT = 4.0f * PLAYER_HEADER_RADIUS
+const val PLAYER_HEAD_SEGMENTS=20
+const val PLAYER_LIMB_WIDTH=0.1f
