@@ -25,20 +25,23 @@ class Player(val mViewport: Viewport) {
     }
 
     fun update(delta: Float) {
-        if(Gdx.input.isKeyPressed(Input.Keys.LEFT)){
-            mPosition.x-=delta* PLAYER_MOVEMENT_SPEED
-        }else if(Gdx.input.isKeyPressed(Input.Keys.RIGHT)){
-            mPosition.x+=delta* PLAYER_MOVEMENT_SPEED
+        if (Gdx.input.isKeyPressed(Input.Keys.LEFT)) {
+            mPosition.x -= delta * PLAYER_MOVEMENT_SPEED
+        } else if (Gdx.input.isKeyPressed(Input.Keys.RIGHT)) {
+            mPosition.x += delta * PLAYER_MOVEMENT_SPEED
         }
+        val accelerometerInput = -Gdx.input.accelerometerY / (GRAVITY_ACCELERATION * ACCELEROMETER_SENSITIVITY)
+        // Y 加速度为正，则表示X方向加速，否则表示X方向减速。
+        mPosition.x += -delta * accelerometerInput * PLAYER_MOVEMENT_SPEED
         ensureInBounds()
     }
 
-    private fun ensureInBounds(){
-        if(mPosition.x- PLAYER_HEADER_RADIUS<0){
-            mPosition.x= PLAYER_HEADER_RADIUS
+    private fun ensureInBounds() {
+        if (mPosition.x - PLAYER_HEADER_RADIUS < 0) {
+            mPosition.x = PLAYER_HEADER_RADIUS
         }
-        if(mPosition.x+ PLAYER_HEADER_RADIUS>mViewport.worldWidth){
-            mPosition.x=mViewport.worldWidth- PLAYER_HEADER_RADIUS
+        if (mPosition.x + PLAYER_HEADER_RADIUS > mViewport.worldWidth) {
+            mPosition.x = mViewport.worldWidth - PLAYER_HEADER_RADIUS
         }
     }
 
