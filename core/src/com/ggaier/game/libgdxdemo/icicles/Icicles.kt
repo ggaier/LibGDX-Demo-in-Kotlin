@@ -3,6 +3,7 @@ package com.ggaier.game.libgdxdemo.icicles
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer
 import com.badlogic.gdx.math.MathUtils
 import com.badlogic.gdx.math.Vector2
+import com.badlogic.gdx.utils.DelayedRemovalArray
 import com.badlogic.gdx.utils.viewport.Viewport
 
 /**
@@ -11,14 +12,14 @@ import com.badlogic.gdx.utils.viewport.Viewport
  */
 class Icicles(val mViewport: Viewport) {
 
-    lateinit var mIcicleList: MutableList<Icicle>
+    lateinit var mIcicleList: DelayedRemovalArray<Icicle>
 
     init {
         init()
     }
 
     fun init() {
-        mIcicleList = mutableListOf()
+        mIcicleList = DelayedRemovalArray(false,100)
     }
 
     fun update(delta: Float) {
@@ -31,6 +32,14 @@ class Icicles(val mViewport: Viewport) {
         for (icicle in mIcicleList) {
             icicle.update(delta)
         }
+
+        mIcicleList.begin()
+        for((index, icicle) in mIcicleList.withIndex()){
+            if(icicle.mPosition.y< -ICICLE_HEIGHT){
+                mIcicleList.removeIndex(index)
+            }
+        }
+        mIcicleList.end()
     }
 
     fun render(renderer: ShapeRenderer) {

@@ -18,7 +18,7 @@ class IcicleScreen : ScreenAdapter() {
     lateinit var mPlayer: Player
 
     override fun show() {
-        mIciclesViewport = ExtendViewport(WORLD_SIZE, WORLD_SIZE)x
+        mIciclesViewport = ExtendViewport(WORLD_SIZE, WORLD_SIZE)
         mRenderer = ShapeRenderer()
         mRenderer.setAutoShapeType(true)
         mIcicles = Icicles(mIciclesViewport)
