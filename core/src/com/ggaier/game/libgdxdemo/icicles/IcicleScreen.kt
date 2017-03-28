@@ -28,6 +28,9 @@ class IcicleScreen : ScreenAdapter() {
     override fun render(delta: Float) {
         mIcicles.update(delta)
         mPlayer.update(delta)
+        if(mPlayer.hitByIcicle(mIcicles)){
+            mIcicles.init()
+        }
         mIciclesViewport.apply(true)
         Gdx.gl.glClearColor(BACKGROUND_COLOR.r, BACKGROUND_COLOR.g, BACKGROUND_COLOR.b, 1f)
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT)

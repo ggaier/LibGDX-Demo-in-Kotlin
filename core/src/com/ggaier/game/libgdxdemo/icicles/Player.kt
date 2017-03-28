@@ -45,6 +45,14 @@ class Player(val mViewport: Viewport) {
         }
     }
 
+    fun hitByIcicle(icicles: Icicles):Boolean {
+        for (icicle in icicles.mIcicleList) {
+            if(icicle.mPosition.dst(mPosition)< PLAYER_HEADER_RADIUS)
+                return true
+        }
+        return false
+    }
+
     fun render(renderer: ShapeRenderer) {
         renderer.color = PLAYER_COLOR
         renderer.set(ShapeRenderer.ShapeType.Filled)
