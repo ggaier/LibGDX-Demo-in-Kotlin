@@ -13,12 +13,20 @@ private val TAG = Icicle::class.java.name
 
 class Icicle(val mPosition: Vector2) {
 
+    var mVelocity:Vector2= Vector2()
+
     fun render(renderer: ShapeRenderer) {
         renderer.color = ICICLE_COLOR
         renderer.set(ShapeRenderer.ShapeType.Filled)
         renderer.triangle(mPosition.x, mPosition.y,
                 mPosition.x - ICICLE_WIDTH / 2, mPosition.y + ICICLE_HEIGHT/ 2,
                 mPosition.x + ICICLE_WIDTH / 2, mPosition.y + ICICLE_HEIGHT/ 2)
-
     }
+
+    fun update(delta:Float){
+        mVelocity.mulAdd(ICICLES_ACCELERATION,delta)
+        mPosition.mulAdd(mVelocity,delta)
+    }
+
+
 }

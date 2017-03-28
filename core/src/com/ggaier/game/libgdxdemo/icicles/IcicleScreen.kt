@@ -4,7 +4,6 @@ import com.badlogic.gdx.Gdx
 import com.badlogic.gdx.ScreenAdapter
 import com.badlogic.gdx.graphics.GL20
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer
-import com.badlogic.gdx.math.Vector2
 import com.badlogic.gdx.utils.viewport.ExtendViewport
 
 /**
@@ -15,18 +14,19 @@ class IcicleScreen : ScreenAdapter() {
 
     lateinit var mIciclesViewport: ExtendViewport
     lateinit var mRenderer: ShapeRenderer
-    lateinit var mIcicle: Icicle
+    lateinit var mIcicles: Icicles
     lateinit var mPlayer: Player
 
     override fun show() {
-        mIciclesViewport = ExtendViewport(WORLD_SIZE, WORLD_SIZE)
+        mIciclesViewport = ExtendViewport(WORLD_SIZE, WORLD_SIZE)x
         mRenderer = ShapeRenderer()
         mRenderer.setAutoShapeType(true)
-        mIcicle = Icicle(Vector2(WORLD_SIZE / 2, WORLD_SIZE / 2))
+        mIcicles = Icicles(mIciclesViewport)
         mPlayer = Player(mIciclesViewport)
     }
 
     override fun render(delta: Float) {
+        mIcicles.update(delta)
         mPlayer.update(delta)
         mIciclesViewport.apply(true)
         Gdx.gl.glClearColor(BACKGROUND_COLOR.r, BACKGROUND_COLOR.g, BACKGROUND_COLOR.b, 1f)
@@ -35,7 +35,7 @@ class IcicleScreen : ScreenAdapter() {
         mRenderer.projectionMatrix = mIciclesViewport.camera.combined
         mRenderer.begin(ShapeRenderer.ShapeType.Filled)
         mRenderer.color = ICICLE_COLOR
-        mIcicle.render(mRenderer)
+        mIcicles.render(mRenderer)
         mPlayer.render(mRenderer)
         mRenderer.end()
     }
@@ -43,6 +43,7 @@ class IcicleScreen : ScreenAdapter() {
     override fun resize(width: Int, height: Int) {
         mIciclesViewport.update(width, height)
         mPlayer.init()
+        mIcicles.init()
     }
 
     override fun dispose() {
