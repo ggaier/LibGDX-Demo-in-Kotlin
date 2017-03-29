@@ -13,13 +13,17 @@ import com.badlogic.gdx.utils.viewport.Viewport
 class Icicles(val mViewport: Viewport) {
 
     lateinit var mIcicleList: DelayedRemovalArray<Icicle>
+        private set
+
+    var mIciclesDodged: Int = 0
+        private set
 
     init {
         init()
     }
 
     fun init() {
-        mIcicleList = DelayedRemovalArray(false,100)
+        mIcicleList = DelayedRemovalArray(false, 100)
     }
 
     fun update(delta: Float) {
@@ -34,9 +38,10 @@ class Icicles(val mViewport: Viewport) {
         }
 
         mIcicleList.begin()
-        for((index, icicle) in mIcicleList.withIndex()){
-            if(icicle.mPosition.y< -ICICLE_HEIGHT){
+        for ((index, icicle) in mIcicleList.withIndex()) {
+            if (icicle.mPosition.y < -ICICLE_HEIGHT) {
                 mIcicleList.removeIndex(index)
+                mIciclesDodged++
             }
         }
         mIcicleList.end()

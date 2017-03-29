@@ -15,6 +15,10 @@ private val TAG: String = Player::class.java.name
 class Player(val mViewport: Viewport) {
 
     lateinit var mPosition: Vector2
+        private set
+
+    var mDeaths: Int = 0
+        private set
 
     init {
         init()
@@ -45,10 +49,12 @@ class Player(val mViewport: Viewport) {
         }
     }
 
-    fun hitByIcicle(icicles: Icicles):Boolean {
+    fun hitByIcicle(icicles: Icicles): Boolean {
         for (icicle in icicles.mIcicleList) {
-            if(icicle.mPosition.dst(mPosition)< PLAYER_HEADER_RADIUS)
+            if (icicle.mPosition.dst(mPosition) < PLAYER_HEADER_RADIUS) {
+                mDeaths++
                 return true
+            }
         }
         return false
     }
