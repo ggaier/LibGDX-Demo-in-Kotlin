@@ -15,7 +15,7 @@ class Icicles(val mViewport: Viewport) {
     lateinit var mIcicleList: DelayedRemovalArray<Icicle>
         private set
 
-    var mIciclesDodged: Int = 0
+    var mIciclesDodged: Int = Int.MIN_VALUE
         private set
 
     init {
@@ -24,6 +24,7 @@ class Icicles(val mViewport: Viewport) {
 
     fun init() {
         mIcicleList = DelayedRemovalArray(false, 100)
+        mIciclesDodged = 0
     }
 
     fun update(delta: Float) {
