@@ -8,6 +8,15 @@ import com.badlogic.gdx.Game
  */
 class IciclesGame : Game() {
     override fun create() {
-        setScreen(IcicleScreen(Difficulty.MEDIUM))
+        showIciclesScreen(Difficulty.MEDIUM)
     }
+
+    fun showDifficultyScreen(){
+        setScreen(DifficultyScreen(this))
+    }
+
+    fun showIciclesScreen(difficulty: Difficulty){
+        setScreen(IcicleScreen(difficulty,this))
+    }
+
 }

@@ -1,7 +1,8 @@
 package com.ggaier.game.libgdxdemo.icicles
 
 import com.badlogic.gdx.Gdx
-import com.badlogic.gdx.ScreenAdapter
+import com.badlogic.gdx.InputAdapter
+import com.badlogic.gdx.Screen
 import com.badlogic.gdx.graphics.GL20
 import com.badlogic.gdx.graphics.Texture
 import com.badlogic.gdx.graphics.g2d.BitmapFont
@@ -15,7 +16,13 @@ import com.badlogic.gdx.utils.viewport.ScreenViewport
  * Created by ggaier at 25/03/2017 .
  * jwenbo52@gmail.com
  */
-class IcicleScreen(val mDifficulty: Difficulty) : ScreenAdapter() {
+class IcicleScreen(val mDifficulty: Difficulty, val mIciclesGame: IciclesGame) : Screen,
+        InputAdapter() {
+    override fun pause() {
+    }
+
+    override fun resume() {
+    }
 
     lateinit var mIciclesViewport: ExtendViewport
     lateinit var mRenderer: ShapeRenderer
@@ -37,7 +44,7 @@ class IcicleScreen(val mDifficulty: Difficulty) : ScreenAdapter() {
         mIciclesViewport = ExtendViewport(WORLD_SIZE, WORLD_SIZE)
         mRenderer = ShapeRenderer()
         mRenderer.setAutoShapeType(true)
-        mIcicles = Icicles(mIciclesViewport,mDifficulty)
+        mIcicles = Icicles(mIciclesViewport, mDifficulty)
         mPlayer = Player(mIciclesViewport)
 
         mHudViewport = ScreenViewport()
@@ -45,6 +52,8 @@ class IcicleScreen(val mDifficulty: Difficulty) : ScreenAdapter() {
         mFont = BitmapFont()
         //用来设置缩小和放大的过滤
         mFont.region.texture.setFilter(Texture.TextureFilter.Linear, Texture.TextureFilter.Linear)
+        mTopScore=0
+        Gdx.input.inputProcessor=this
     }
 
     override fun render(delta: Float) {
@@ -94,6 +103,11 @@ class IcicleScreen(val mDifficulty: Difficulty) : ScreenAdapter() {
 
     override fun hide() {
         mRenderer.dispose()
+    }
+
+    override fun touchDown(screenX: Int, screenY: Int, pointer: Int, button: Int): Boolean {
+        mIciclesGame.showDifficultyScreen()
+        return true
     }
 
 }
