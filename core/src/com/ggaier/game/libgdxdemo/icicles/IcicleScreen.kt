@@ -15,7 +15,7 @@ import com.badlogic.gdx.utils.viewport.ScreenViewport
  * Created by ggaier at 25/03/2017 .
  * jwenbo52@gmail.com
  */
-class IcicleScreen : ScreenAdapter() {
+class IcicleScreen(val mDifficulty: Difficulty) : ScreenAdapter() {
 
     lateinit var mIciclesViewport: ExtendViewport
     lateinit var mRenderer: ShapeRenderer
@@ -37,7 +37,7 @@ class IcicleScreen : ScreenAdapter() {
         mIciclesViewport = ExtendViewport(WORLD_SIZE, WORLD_SIZE)
         mRenderer = ShapeRenderer()
         mRenderer.setAutoShapeType(true)
-        mIcicles = Icicles(mIciclesViewport)
+        mIcicles = Icicles(mIciclesViewport,mDifficulty)
         mPlayer = Player(mIciclesViewport)
 
         mHudViewport = ScreenViewport()
@@ -69,7 +69,8 @@ class IcicleScreen : ScreenAdapter() {
         mHudViewport.apply()
         mBatch.projectionMatrix = mHudViewport.camera.combined
         mBatch.begin()
-        mFont.draw(mBatch, "Deaths: ${mPlayer.mDeaths} ", HUD_MARGIN,
+        mFont.draw(mBatch, "Deaths: ${mPlayer.mDeaths} \n Difficulty: ${mDifficulty.label} ",
+                HUD_MARGIN,
                 mHudViewport.worldHeight - HUD_MARGIN)
         mFont.draw(mBatch, "Score: ${mIcicles.mIciclesDodged} \n Top Score: $mTopScore",
                 mHudViewport.worldWidth - HUD_MARGIN, mHudViewport.worldHeight - HUD_MARGIN, 0f,

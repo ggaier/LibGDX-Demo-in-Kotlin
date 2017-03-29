@@ -10,7 +10,7 @@ import com.badlogic.gdx.utils.viewport.Viewport
  * Created by ggaier at 25/03/2017 .
  * jwenbo52@gmail.com
  */
-class Icicles(val mViewport: Viewport) {
+class Icicles(val mViewport: Viewport,val mDifficulty: Difficulty) {
 
     lateinit var mIcicleList: DelayedRemovalArray<Icicle>
         private set
@@ -28,7 +28,7 @@ class Icicles(val mViewport: Viewport) {
     }
 
     fun update(delta: Float) {
-        if (MathUtils.random() < delta * ICICLE_SPAWNS_PER_SECOND) {
+        if (MathUtils.random() < delta * mDifficulty.spawnRate) {
             val newIciclePosition = Vector2(MathUtils.random() * mViewport.worldWidth,
                     mViewport.worldHeight)
             val icicle = Icicle(newIciclePosition)

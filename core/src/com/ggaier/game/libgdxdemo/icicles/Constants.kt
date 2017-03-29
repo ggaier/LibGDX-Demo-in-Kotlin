@@ -22,5 +22,20 @@ const val GRAVITY_ACCELERATION = 9.8f
 const val ACCELEROMETER_SENSITIVITY = 0.5f
 const val ICICLE_SPAWNS_PER_SECOND = 10.0f
 val ICICLES_ACCELERATION: Vector2 = Vector2(0f, -5f)
-const val HUD_FONT_REFERENCE_SCREEN_SIZE=480.0f
-const val HUD_MARGIN=20.0f
+const val HUD_FONT_REFERENCE_SCREEN_SIZE = 480.0f
+const val HUD_MARGIN = 20.0f
+
+const val EASY_SPAWNS_PER_SECOND: Float = 5f
+const val MEDIUM_SPAWNS_PER_SECOND: Float = 15f
+const val HARD_SPAWNS_PER_SECOND: Float = 20f
+const val EASY_LABEL = "Cold"
+const val MEDIUM_LABLE = "Colder"
+const val HARD_LABLE = "Coldest"
+
+enum class Difficulty(val spawnRate: Float, val label: String) {
+
+    EASY(EASY_SPAWNS_PER_SECOND, EASY_LABEL),
+    MEDIUM(MEDIUM_SPAWNS_PER_SECOND, MEDIUM_LABLE),
+    HARD(HARD_SPAWNS_PER_SECOND, HARD_LABLE)
+
+}
